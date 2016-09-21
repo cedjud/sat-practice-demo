@@ -1,0 +1,66 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif; }
+
+.quiz {
+  position: relative;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden; }
+
+.question {
+  position: absolute;
+  left: 100%;
+  max-width: calc(100% - 20px);
+  width: auto;
+  transition: all .2s; }
+  .question.is-active {
+    left: 10px; }
+  .question.is-finished {
+    right: 100%; }
+  .question p {
+    padding: 10px;
+    margin-bottom: 0px;
+    text-align: left; }
+  .question__title {
+    font-style: italic; }
+  .question__answer {
+    cursor: pointer;
+    transition: all .2s; }
+    .question__answer:hover {
+      background-color: #f2f2f2;
+      color: ligthen(#000, 10%); }
+
+.text {
+  border-left: 1px solid grey;
+  height: 100vh;
+  overflow-y: scroll; }
+
+.passage__copy {
+  letter-spacing: 1.1px;
+  margin: 0 0 16px;
+  font-weight: 200; }
+.passage__highlight {
+  text-decoration: underline;
+  font-weight: 600;
+  color: red; }
+  .passage__highlight:before, .passage__highlight:after {
+    content: " "; }
+
+.mdl-layout__drawer {
+  padding: 10px; }
+  @media (min-width: 1200px) {
+    .mdl-layout__drawer {
+      width: 450px;
+      transform: translateX(-450px); } }
+
+.mdl-layout--fixed-drawer > .mdl-layout__content {
+  padding: 10px; }
+  @media (min-width: 1200px) {
+    .mdl-layout--fixed-drawer > .mdl-layout__content {
+      margin-left: 450px; } }
+
+/*# sourceMappingURL=index.css.map */
