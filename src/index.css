@@ -3,7 +3,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #666; }
 
 .mdl-grid {
@@ -34,6 +34,11 @@ body {
   overflow-y: scroll;
   overflow-x: hidden;
   margin-left: 32px; }
+  .quiz .directions__copy {
+    line-height: 28px;
+    letter-spacing: 1.1px;
+    margin: 0 0 16px;
+    font-weight: 300; }
 
 .text {
   overflow-y: scroll; }
@@ -47,7 +52,9 @@ body {
     margin-bottom: 0px;
     text-align: left;
     position: relative;
-    padding-left: 51px; }
+    padding-left: 51px;
+    line-height: 28px;
+    font-weight: 300; }
   .question__answer {
     cursor: pointer;
     transition: all .2s; }
