@@ -1,0 +1,106 @@
+{ "passage" : {
+    "title" : "Librarians Help Navigate in the Digital Age"
+  },
+  "instructions" : "Each passage below is accompanied by a number of questions. For some questions, you will consider how the passage might be revised to improve the expression of ideas. For other questions, you will consider how the passage might be edited to correct errors in sentence structure, usage, or punctuation. A passage or a question may be accompanied by one or more graphics (such as a table or graph) that you will consider as you make revising and editing decisions. Some questions will direct you to an underlined portion of a passage. Other questions will direct you to a location in a passage or ask you to think about the passage as a whole. After reading each passage, choose the answer to each question that most effectively improves the quality of writing in the passage or that makes the passage conform to the conventions of standard written English. Many questions include a “NO CHANGE” option. Choose that option if you think the best choice is to leave the relevant portion of the passage as it is.",
+  "cards": [
+    {
+      "id":"1",
+      "title":"",
+      "A":"NO CHANGE",
+      "B":"reductions",
+      "C":"deducting",
+      "D":"deducts",
+      "solution":"B"
+    },
+    {
+      "id":"2",
+      "title":"",
+      "A":"NO CHANGE",
+      "B":"Consequently,",
+      "C":"Nevertheless,",
+      "D":"Previously,",
+      "solution":"B"
+    },
+    {
+      "id":"3",
+      "title":"",
+      "A":"NO CHANGE",
+      "B":"have",
+      "C":"which have",
+      "D":"which has",
+      "solution":"A"
+    },
+    {
+      "id":"4",
+      "title":" At this point, the writer is considering adding the following information. —e-books, audio and video materials, and online journals— Should the writer make this addition here?",
+      "A":"Yes, because it provides specific examples of the materials discussed in the sentence.",
+      "B":"Yes, because it illustrates the reason for the increase mentioned later in the sentence.",
+      "C":"No, because it interrupts the flow of the sentence by supplying irrelevant information.",
+      "D":"No, because it weakens the focus of the passage by discussing a subject other than librarians.",
+      "solution":"A"
+    },
+    {
+      "id":"5",
+      "title":"",
+      "A":"NO CHANGE",
+      "B":"to be circulated by them.",
+      "C":"for their circulating.",
+      "D":"for circulation.",
+      "solution":"D"
+    },
+    {
+      "id":"6",
+      "title":"",
+      "A":"NO CHANGE",
+      "B":"librarians cataloging,",
+      "C":"to catalog,",
+      "D":"cataloging,",
+      "solution":"D"
+    },
+    {
+      "id":"7",
+      "title":"Which choice most effectively combines the underlined sentences?",
+      "A":"In fact, librarians’ training now includes courses on research and Internet search methods; many librarians teach classes in Internet navigation, database and software use, and digital information literacy is taught by them.",
+      "B":"In fact, many librarians, whose training now includes courses on research and Internet search methods, teach classes in Internet navigation, database and software use, and digital information literacy.",
+      "C":"Training now includes courses on research and Internet search methods; many librarians, in fact, are teaching classes in Internet navigation, database and software use, and digital information literacy.",
+      "D":"Including courses on research and Internet search methods in their training is, in fact, why many librarians teach classes in Internet navigation, database and software use, and digital information literacy.",
+      "solution":"B"
+    },
+    {
+      "id":"8",
+      "title":"",
+      "A":"NO CHANGE",
+      "B":"and",
+      "C":"for",
+      "D":"DELETE the underlined portion.",
+      "solution":"D"
+    },
+    {
+      "id":"9",
+      "title":"Which choice most effectively sets up the examples given at the end of the sentence?",
+      "A":"NO CHANGE",
+      "B":"During periods of economic recession,",
+      "C":"Although their value cannot be measured,",
+      "D":"When it comes to the free services libraries provide,",
+      "solution":"B"
+    },
+    {
+      "id":"10",
+      "title":"",
+      "A":"NO CHANGE",
+      "B":"legal issues,",
+      "C":"concerns related to law courts,",
+      "D":"matters for the law courts,",
+      "solution":"B"
+    },
+    {
+      "id":"11",
+      "title":"Which choice most clearly ends the passage with a restatement of the writer’s primary claim?",
+      "A":"NO CHANGE",
+      "B":"Although their roles have diminished significantly, librarians will continue to be employed by public libraries for the foreseeable future.",
+      "C":"The growth of electronic information has led to a diversification of librarians’ skills and services, positioning them as savvy resource specialists for patrons.",
+      "D":"However, given their extensive training and skills, librarians who have been displaced by budget cuts have many other possible avenues of employment.",
+      "solution":"C"
+    }
+  ]
+}
