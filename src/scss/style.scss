@@ -49,6 +49,7 @@ body {
         background-color: #ccc;
       }
     }
+
     &:before {
       content: '';
       display: inline-block;
@@ -104,7 +105,6 @@ body {
   }
   &__highlight {
     color: #666;
-    // padding: 3px 0px;
     background-color: #eee;
 
     &:before,
@@ -120,14 +120,13 @@ body {
   ul {
     list-style: none;
     padding-left: 0px;
+    padding-top: 0px;
 
     &:first-child {
-      // border-right: 1px solid #ccc;
     }
 
     li {
       padding: 5px 0px;
-      // margin: 0px 10px;
       border-bottom: 1px solid #ccc;
     }
   }
