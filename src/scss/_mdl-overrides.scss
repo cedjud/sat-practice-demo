@@ -1,0 +1,25 @@
+// Adjustments to Material Design layout.
+.mdl-grid {
+  padding: 0px;
+}
+
+.mdl-cell {
+  margin: 0px;
+  padding: 32px;
+}
+
+.mdl-layout__drawer {
+  // width: 85%;
+  padding: 10px;
+  @include respond-to('large'){
+    width: 450px;
+    transform: translateX(-450px);
+  }
+}
+
+.mdl-layout--fixed-drawer>.mdl-layout__content {
+  padding: 10px;
+  @include respond-to('large'){
+    margin-left: 450px;
+  }
+}

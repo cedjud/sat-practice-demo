@@ -6,34 +6,24 @@ body {
   font-family: sans-serif;
 }
 
+@import './mixins';
+@import './mdl-overrides';
+
 .quiz {
   position: relative;
   overflow-y: scroll;
   overflow-x: hidden;
-  // padding: 8px;
-  // margin: -8px 8px -8px -8px;
+  margin-left: 32px;
 }
 
 .text {
   overflow-y: scroll;
-  // margin: -8px 8px -8px -8px;
-  // padding: 16px;
 }
 
 .question {
   position: absolute;
-  // left: 100%;
-  max-width: calc(100% - 20px);
-  width: auto;
+  width: calc(100% - 128px);
   transition: all .2s;
-
-  &.is-active {
-
-  }
-
-  &.is-finished {
-
-  }
 
   p {
     padding: 10px;
@@ -55,8 +45,6 @@ body {
   }
 }
 
-
-
 .passage {
 
   &__title {}
@@ -68,9 +56,6 @@ body {
   }
 
   &__highlight {
-
-    // text-decoration: underline;
-    // font-weight: 600;
     color: #666;
     padding: 3px 0px;
     background-color: #eee;
@@ -78,83 +63,48 @@ body {
     &:before,
     &:after {
       content: "";
-      // margin: 3px;
       background-color: #37474f;
     }
   }
 
 }
 
+.results {
+  ul {
+    list-style: none;
+    padding-left: 0px;
 
-// Setup breakpoint Mixins
+    &:first-child {
+      // border-right: 1px solid #ccc;
+    }
 
-$breakpoints: (
-  'small':  767px,
-  'medium': 992px,
-  'large':  1200px
-) !default;
-
-/// Mixin to manage responsive breakpoints
-/// @author Hugo Giraudel
-/// @param {String} $breakpoint - Breakpoint name
-/// @require $breakpoints
-@mixin respond-to($breakpoint) {
-  // If the key exists in the map
-  @if map-has-key($breakpoints, $breakpoint) {
-    // Prints a media query based on the value
-    @media (min-width: map-get($breakpoints, $breakpoint)) {
-      @content;
+    li {
+      padding: 5px 0px;
+      // margin: 0px 10px;
+      border-bottom: 1px solid #ccc;
     }
   }
-
-  // If the key doesn't exist in the map
-  @else {
-    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
-        + "Available breakpoints are: #{map-keys($breakpoints)}.";
-  }
-}
-
-
-// Adjustments to Material Design layout.
-.mdl-layout__drawer {
-  // width: 85%;
-  padding: 10px;
-  @include respond-to('large'){
-    width: 450px;
-    transform: translateX(-450px);
-  }
-}
-
-.mdl-layout--fixed-drawer>.mdl-layout__content {
-  padding: 10px;
-  @include respond-to('large'){
-    margin-left: 450px;
-  }
-}
-
-.mdl-layout__content {
-  // height: calc(100% - 64px);
 }
 
 // card animation
-.example-enter {
+.card-enter {
   opacity: 0.01;
   left: 100%;
 }
 
-.example-enter.example-enter-active {
+.card-enter.card-enter-active {
   opacity: 1;
   left: 0%;
-  transition: all 500ms ease-in;
+  transition: all 200ms ease-in;
 }
 
-.example-leave {
+.card-leave {
   opacity: 1;
   left: 0%;
 }
 
-.example-leave.example-leave-active {
+.card-leave.card-leave-active {
   opacity: 0.01;
   left: -100%;
-  transition: all 300ms ease-in;
+  transition: all 200ms ease-in;
 }
