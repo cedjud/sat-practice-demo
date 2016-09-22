@@ -29,7 +29,6 @@ var Results = React.createClass({
             {givenAnswerNodes}
           </ul>
         </div>
-
         <button className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" onClick={this.props.finish}>finish</button>
       </div>
     );

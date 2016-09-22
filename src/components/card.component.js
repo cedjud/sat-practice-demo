@@ -27,12 +27,14 @@ var Card = React.createClass({
     });
     return (
         <div className={cardClasses} id="question-1">
-          <p className="question__title">{this.props.title}</p>
+          <div className="mdl-card__title">
+            <h4 className="question__title mdl-card__title-text">{this.props.title}</h4>
+          </div>
           <p className="question__answer answer-A" onClick={this.handleAnswerClick}>{this.props.answerA}</p>
           <p className="question__answer answer-B" onClick={this.handleAnswerClick}>{this.props.answerB}</p>
           <p className="question__answer answer-C" onClick={this.handleAnswerClick}>{this.props.answerC}</p>
           <p className="question__answer answer-D" onClick={this.handleAnswerClick}>{this.props.answerD}</p>
-          <p className="question__solution">{this.props.solution}</p>
+          <p className="question__solution">(solution: {this.props.solution})</p>
         </div>
     );
   }

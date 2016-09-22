@@ -4,7 +4,7 @@ const Instructions = React.createClass({
   render() {
     return (
       <div className="directions">
-        <h2 className="directions__title mdl-typography--headline">DIRECTIONS</h2>
+        <h3 className="directions__title mdl-typography--headline">Instructions</h3>
         <p className="directions__copy">
           {this.props.data}
         </p>

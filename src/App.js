@@ -73,7 +73,9 @@ var App = React.createClass({
     return (
       <div className="mdl-layout mdl-js-layout ">
         <header className="mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600 is-casting-shadow">
-
+          <div className="mdl-layout__header-row">
+            <span className="mdl-layout-title">SE Cards - Quiz Demo</span>
+          </div>
         </header>
         <main className="mdl-layout__content mdl-grid">
           <div className="text mdl-cell mdl-cell--6-col mdl-color--blue-grey-800 mdl-color-text--blue-grey-50">

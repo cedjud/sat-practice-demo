@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  color: #666;
 }
 
 @import './mixins';
@@ -29,10 +30,11 @@ body {
     padding: 10px;
     margin-bottom: 0px;
     text-align: left;
+    position: relative;
+    padding-left: 51px;
   }
 
   &__title {
-    font-style: italic;
   }
 
   &__answer {
@@ -41,7 +43,46 @@ body {
     &:hover {
       background-color: darken(#FFF,5%);
       color: ligthen(#000,10%);
+
+      &:before {
+        color: #777;
+        background-color: #ccc;
+      }
     }
+    &:before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      left: 16px;
+      top: 10px;
+      line-height: 25px;
+      padding-top: 1px;
+      width: 25px;
+      height: 25px;
+      background-color: #777;
+      color: #eee;
+      border-radius: 15px;
+      text-align: center;
+      font-weight: 100;
+      transition: all .2s;
+    }
+  }
+
+  &__solution {
+    font-style: italic;
+  }
+
+  .answer-A:before {
+    content: 'A';
+  }
+  .answer-B:before {
+    content: 'B';
+  }
+  .answer-C:before {
+    content: 'C';
+  }
+  .answer-D:before {
+    content: 'D';
   }
 }
 
@@ -50,14 +91,20 @@ body {
   &__title {}
 
   &__copy {
+      line-height: 28px;
       letter-spacing: 1.1px;
       margin: 0 0 16px;
       font-weight: 200;
   }
 
+  span {
+    display: inline-block;
+    padding: 1px;
+    margin: 0px 2px;
+  }
   &__highlight {
     color: #666;
-    padding: 3px 0px;
+    // padding: 3px 0px;
     background-color: #eee;
 
     &:before,

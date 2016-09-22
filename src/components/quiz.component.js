@@ -23,6 +23,7 @@ var Quiz = React.createClass({
   render(){
     var self = this;
     var activeCard = this.props.activeQuestion;
+    var defaultTitle = "How might the passage be revised to improve the expression of ideas?"
     var cardNodes = this.props.data.map( function( cardNode, index ) {
       var isActive = activeCard === index;
       return (
@@ -30,13 +31,12 @@ var Quiz = React.createClass({
           onAnswerSubmit={self.displayNextCard}
           activeCard={isActive}
           key={cardNode.id}
-          title={cardNode.title !== "" ? cardNode.title : 'default text'}
+          title={cardNode.title !== "" ? cardNode.title : defaultTitle}
           answerA={cardNode.A}
           answerB={cardNode.B}
           answerC={cardNode.C}
           answerD={cardNode.D}
           solution={cardNode.solution}
-
           solutionText={cardNode[cardNode.solution]}
         />
       );
