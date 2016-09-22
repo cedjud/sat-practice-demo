@@ -13,6 +13,7 @@ var App = React.createClass({
       currentQuestion: 0,
       quizResult: 0,
       quizActive: false,
+<<<<<<< HEAD
       resultsActive: false,
       givenAnswers: [],
       correctAnswers: []
@@ -25,6 +26,16 @@ var App = React.createClass({
         quizResult: this.state.quizResult + value,
         givenAnswers: this.state.givenAnswers.concat(givenAnswer),
         correctAnswers: this.state.correctAnswers.concat(correctAnswer),
+=======
+      resultsActive: false
+    };
+  },
+  handleAnswerClick: function(value){
+    if (this.state.currentQuestion < this.props.data.cards.length - 1){
+      this.setState({
+        currentQuestion: this.state.currentQuestion + 1,
+        quizResult: this.state.quizResult + value
+>>>>>>> 8ceae26f9e6ce6a76b36599f0c53060767c4c48a
       });
       this.scrollText();
     } else {
@@ -39,14 +50,21 @@ var App = React.createClass({
       currentQuestion: 0,
       resultsActive: false,
       quizResult: 0,
+<<<<<<< HEAD
       givenAnswers: [],
       correctAnswers: []
+=======
+>>>>>>> 8ceae26f9e6ce6a76b36599f0c53060767c4c48a
     });
     // Reset the text
     this.scrollText(0);
   },
   scrollText: function(value){
+<<<<<<< HEAD
     // TODO: Find out the React way to get and manipulate standard DOM elements
+=======
+    // TODO: Find out if there is a React way to get and manipulate elements
+>>>>>>> 8ceae26f9e6ce6a76b36599f0c53060767c4c48a
     // see here https://facebook.github.io/react/docs/working-with-the-browser.html
     // or here: https://facebook.github.io/react/docs/more-about-refs.html
     //
@@ -57,7 +75,11 @@ var App = React.createClass({
     } else {
       distance = document.getElementsByClassName('passage__highlight')[0].offsetTop - 15;
     }
+<<<<<<< HEAD
     document.getElementsByClassName('text')[0].scrollTop = distance;
+=======
+    document.getElementById('text').scrollTop = distance;
+>>>>>>> 8ceae26f9e6ce6a76b36599f0c53060767c4c48a
   },
   handleQuizActive: function(){
     this.setState({
@@ -65,6 +87,7 @@ var App = React.createClass({
     })
   },
   render() {
+<<<<<<< HEAD
     var results = this.state.resultsActive ? <Results correctAnswers={this.state.correctAnswers} givenAnswers={this.state.givenAnswers} score={this.state.quizResult} quizLength={this.props.data.cards.length} finish={this.finishQuiz} /> : null;
     var instructions = this.state.quizActive || this.state.resultsActive ? null : <Instructions data={this.props.data.instructions} startQuiz={this.handleQuizActive} />;
     var quiz = this.state.quizActive ? <Quiz data={this.props.data.cards} isActive={this.state.quizActive} activeQuestion={this.state.currentQuestion} onAnswerSubmit={this.handleAnswerClick}/> : null;
@@ -82,6 +105,22 @@ var App = React.createClass({
             {quiz}
             {results}
           </div>
+=======
+    var results = this.state.resultsActive ? <Results score={this.state.quizResult} quizLength={this.props.data.cards.length} finish={this.finishQuiz} /> : null;
+    var instructions = this.state.quizActive || this.state.resultsActive ? null : <Instructions data={this.props.data.instructions} startQuiz={this.handleQuizActive} />;
+    var quiz = this.state.quizActive ? <Quiz data={this.props.data.cards} isActive={this.state.quizActive} activeQuestion={this.state.currentQuestion} onAnswerSubmit={this.handleAnswerClick}/> : null;
+    return (
+      <div className="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+        <header className="mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600 is-casting-shadow">
+        </header>
+        <div className="mdl-layout__drawer mdl-color--blue-grey-800 mdl-color-text--blue-grey-50" id="text">
+            <Passage data={this.props.data.passage} isActive={this.state.quizActive} activeQuestion={this.state.currentQuestion} />
+        </div>
+        <main className="mdl-layout__content" id="quiz">
+            {instructions}
+            {quiz}
+            {results}
+>>>>>>> 8ceae26f9e6ce6a76b36599f0c53060767c4c48a
         </main>
       </div>
     );

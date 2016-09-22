@@ -4,8 +4,10 @@ import classNames from 'classnames';
 var Card = React.createClass({
   handleAnswerClick: function(e){
     var result;
+
     var correctAnswer = this.props.solutionText;
     var selectedAnswer = e.target.innerHTML;
+
     var givenAnswer = e.target.classList[1].split('-')[1];
     if (givenAnswer === this.props.solution){
       console.log('correct!');
