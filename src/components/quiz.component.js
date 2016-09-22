@@ -49,7 +49,6 @@ var Quiz = React.createClass({
         transitionLeaveTimeout={500}>
           {cardNodes[this.state.currentCard]}
         </ReactCSSTransitionGroup>
-        {cardNodes}
       </div>
     );
   }
