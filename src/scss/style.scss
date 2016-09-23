@@ -10,14 +10,16 @@ body {
 @import './mixins';
 @import './mdl-overrides';
 
+// Quiz panel styles
 .quiz {
   position: relative;
   overflow-y: scroll;
   overflow-x: hidden;
   margin-left: 32px;
+  padding-left: 0px;
 
+  // Instructions view styles
   .directions {
-
     &__copy {
       line-height: 28px;
       letter-spacing: 1.1px;
@@ -25,142 +27,143 @@ body {
       font-weight: 300;
     }
   }
-}
 
-.text {
-  overflow-y: scroll;
-}
-
-.question {
-  position: absolute;
-  width: calc(100% - 128px);
-  transition: all .2s;
-
-  p {
-    padding: 10px;
-    margin-bottom: 0px;
-    text-align: left;
-    position: relative;
-    padding-left: 51px;
-    line-height: 28px;
-    font-weight: 300;
-  }
-
-  &__title {
-  }
-
-  &__answer {
-    cursor: pointer;
+  // Question card styles
+  .question {
+    position: absolute;
+    width: calc(100% - 128px);
     transition: all .2s;
-    &:hover {
-      background-color: darken(#FFF,5%);
-      color: ligthen(#000,10%);
+
+    p {
+      padding: 10px;
+      margin-bottom: 0px;
+      text-align: left;
+      position: relative;
+      padding-left: 51px;
+      line-height: 28px;
+      font-weight: 300;
+    }
+
+    &__title {
+    }
+
+    &__answer {
+      cursor: pointer;
+      transition: all .2s;
+      &:hover {
+        background-color: darken(#FFF,5%);
+        color: ligthen(#000,10%);
+
+        &:before {
+          color: #777;
+          background-color: #ccc;
+        }
+      }
 
       &:before {
-        color: #777;
-        background-color: #ccc;
+        content: '';
+        display: inline-block;
+        position: absolute;
+        left: 16px;
+        top: 10px;
+        line-height: 25px;
+        padding-top: 1px;
+        width: 25px;
+        height: 25px;
+        background-color: #777;
+        color: #eee;
+        border-radius: 15px;
+        text-align: center;
+        font-weight: 100;
+        transition: all .2s;
       }
     }
 
-    &:before {
-      content: '';
-      display: inline-block;
-      position: absolute;
-      left: 16px;
-      top: 10px;
-      line-height: 25px;
-      padding-top: 1px;
-      width: 25px;
-      height: 25px;
-      background-color: #777;
-      color: #eee;
-      border-radius: 15px;
-      text-align: center;
-      font-weight: 100;
-      transition: all .2s;
+    &__solution {
+      font-style: italic;
+    }
+
+    .answer-A:before {
+      content: 'A';
+    }
+    .answer-B:before {
+      content: 'B';
+    }
+    .answer-C:before {
+      content: 'C';
+    }
+    .answer-D:before {
+      content: 'D';
     }
   }
 
-  &__solution {
-    font-style: italic;
+  // Results view styles.
+  .results {
+    tr.correct {
+      background-color: transparentize(green, 0.9);
+      i {
+        color: green;
+      }
+    }
+    tr.wrong {
+      background-color: transparentize(red, 0.95);
+      i {
+        color: red;
+      }
+    }
+
+    table {
+      margin-bottom: 32px;
+    }
   }
 
-  .answer-A:before {
-    content: 'A';
-  }
-  .answer-B:before {
-    content: 'B';
-  }
-  .answer-C:before {
-    content: 'C';
-  }
-  .answer-D:before {
-    content: 'D';
-  }
-}
-
-.passage {
-
-  &__title {}
-
-  &__copy {
-      line-height: 28px;
-      letter-spacing: 1.1px;
-      margin: 0 0 16px;
-      font-weight: 200;
-  }
-
+  // Animation container
   span {
-    display: inline-block;
-    padding: 1px;
-    margin: 0px 2px;
-
-    &.passage__highlight-blank {
-
-    }
+    display: flex;
+    justify-content: center;
   }
-
-  &__highlight {
-    color: #666;
-    background-color: #eee;
-    border-radius: 1px;
-
-    &:before,
-    &:after {
-      content: "";
-      background-color: #37474f;
-    }
-  }
-
 }
 
-.results {
+// Text panel styles
+.text {
+  overflow-y: scroll;
 
-  tr {
-    border-bottom: 1px solid #ccc;
+  .passage {
 
-    th {
-      text-align: left;
-    }
-    td, th {
-      padding: 5px;
-    }
-  }
-
-  ul {
-    list-style: none;
-    padding-left: 0px;
-    padding-top: 0px;
-
-    &:first-child {
+    &__title {
     }
 
-    li {
-      padding: 5px 0px;
-      border-bottom: 1px solid #ccc;
+    &__copy {
+        line-height: 28px;
+        letter-spacing: 1.1px;
+        margin: 0 0 16px;
+        font-weight: 200;
+    }
+
+    span {
+      display: inline-block;
+      padding: 1px;
+      margin: 0px 2px;
+
+      &.passage__highlight-blank {
+
+      }
+    }
+
+    &__highlight {
+      color: #666;
+      background-color: #eee;
+      border-radius: 1px;
+
+      &:before,
+      &:after {
+        content: "";
+        background-color: #37474f;
+      }
     }
   }
 }
+
 
 // card animation
 .card-enter {

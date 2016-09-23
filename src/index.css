@@ -29,98 +29,99 @@ body {
 .mdl-layout__header-row {
   padding: 0px 32px; }
 
+.mdl-data-table {
+  white-space: normal; }
+
 .quiz {
   position: relative;
   overflow-y: scroll;
   overflow-x: hidden;
-  margin-left: 32px; }
+  margin-left: 32px;
+  padding-left: 0px; }
   .quiz .directions__copy {
     line-height: 28px;
     letter-spacing: 1.1px;
     margin: 0 0 16px;
     font-weight: 300; }
+  .quiz .question {
+    position: absolute;
+    width: calc(100% - 128px);
+    transition: all .2s; }
+    .quiz .question p {
+      padding: 10px;
+      margin-bottom: 0px;
+      text-align: left;
+      position: relative;
+      padding-left: 51px;
+      line-height: 28px;
+      font-weight: 300; }
+    .quiz .question__answer {
+      cursor: pointer;
+      transition: all .2s; }
+      .quiz .question__answer:hover {
+        background-color: #f2f2f2;
+        color: ligthen(#000, 10%); }
+        .quiz .question__answer:hover:before {
+          color: #777;
+          background-color: #ccc; }
+      .quiz .question__answer:before {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        left: 16px;
+        top: 10px;
+        line-height: 25px;
+        padding-top: 1px;
+        width: 25px;
+        height: 25px;
+        background-color: #777;
+        color: #eee;
+        border-radius: 15px;
+        text-align: center;
+        font-weight: 100;
+        transition: all .2s; }
+    .quiz .question__solution {
+      font-style: italic; }
+    .quiz .question .answer-A:before {
+      content: 'A'; }
+    .quiz .question .answer-B:before {
+      content: 'B'; }
+    .quiz .question .answer-C:before {
+      content: 'C'; }
+    .quiz .question .answer-D:before {
+      content: 'D'; }
+  .quiz .results tr.correct {
+    background-color: rgba(0, 128, 0, 0.1); }
+    .quiz .results tr.correct i {
+      color: green; }
+  .quiz .results tr.wrong {
+    background-color: rgba(255, 0, 0, 0.05); }
+    .quiz .results tr.wrong i {
+      color: red; }
+  .quiz .results table {
+    margin-bottom: 32px; }
+  .quiz span {
+    display: flex;
+    justify-content: center; }
 
 .text {
   overflow-y: scroll; }
-
-.question {
-  position: absolute;
-  width: calc(100% - 128px);
-  transition: all .2s; }
-  .question p {
-    padding: 10px;
-    margin-bottom: 0px;
-    text-align: left;
-    position: relative;
-    padding-left: 51px;
+  .text .passage__copy {
     line-height: 28px;
-    font-weight: 300; }
-  .question__answer {
-    cursor: pointer;
-    transition: all .2s; }
-    .question__answer:hover {
-      background-color: #f2f2f2;
-      color: ligthen(#000, 10%); }
-      .question__answer:hover:before {
-        color: #777;
-        background-color: #ccc; }
-    .question__answer:before {
-      content: '';
-      display: inline-block;
-      position: absolute;
-      left: 16px;
-      top: 10px;
-      line-height: 25px;
-      padding-top: 1px;
-      width: 25px;
-      height: 25px;
-      background-color: #777;
-      color: #eee;
-      border-radius: 15px;
-      text-align: center;
-      font-weight: 100;
-      transition: all .2s; }
-  .question__solution {
-    font-style: italic; }
-  .question .answer-A:before {
-    content: 'A'; }
-  .question .answer-B:before {
-    content: 'B'; }
-  .question .answer-C:before {
-    content: 'C'; }
-  .question .answer-D:before {
-    content: 'D'; }
-
-.passage__copy {
-  line-height: 28px;
-  letter-spacing: 1.1px;
-  margin: 0 0 16px;
-  font-weight: 200; }
-.passage span {
-  display: inline-block;
-  padding: 1px;
-  margin: 0px 2px; }
-.passage__highlight {
-  color: #666;
-  background-color: #eee;
-  border-radius: 1px; }
-  .passage__highlight:before, .passage__highlight:after {
-    content: "";
-    background-color: #37474f; }
-
-.results tr {
-  border-bottom: 1px solid #ccc; }
-  .results tr th {
-    text-align: left; }
-  .results tr td, .results tr th {
-    padding: 5px; }
-.results ul {
-  list-style: none;
-  padding-left: 0px;
-  padding-top: 0px; }
-  .results ul li {
-    padding: 5px 0px;
-    border-bottom: 1px solid #ccc; }
+    letter-spacing: 1.1px;
+    margin: 0 0 16px;
+    font-weight: 200; }
+  .text .passage span {
+    display: inline-block;
+    padding: 1px;
+    margin: 0px 2px; }
+  .text .passage__highlight {
+    color: #666;
+    background-color: #eee;
+    border-radius: 1px; }
+    .text .passage__highlight:before, .text .passage__highlight:after {
+      content: "";
+      background-color: #37474f; }
 
 .card-enter {
   opacity: 0.01;

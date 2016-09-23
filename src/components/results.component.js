@@ -1,27 +1,23 @@
 import React from 'react';
+import classNames from 'classnames';
 
 var Results = React.createClass({
   render(){
-    // var correctAnswerNodes = this.props.correctAnswers.map(function(correctAnswer,index){
-    //   return (
-    //     <li key={index} className="correct-answer">{correctAnswer}</li>
-    //   );
-    // });
-    // var givenAnswerNodes = this.props.givenAnswers.map(function(givenAnswer,index){
-    //   return (
-    //     <li key={index} className="given-answer">{givenAnswer}</li>
-    //   );
-    // });
     var score = 0;
     var results = this.props.results.map(function(result, index){
+      // Increment score if response is correct
       if (result.isCorrect){
         score++;
       }
+      var rowClasses = classNames({
+        'correct': result.isCorrect,
+        'wrong': !result.isCorrect,
+      });
       return (
-        <tr key={index}>
-          <td>{result.isCorrect ? '✓' : '✘'}</td>
-          <td>{result.responseText}</td>
-          <td>{result.solutionText}</td>
+        <tr key={index} className={rowClasses}>
+          <td><i className={rowClasses + " material-icons"}>{result.isCorrect ? 'done' : 'clear'}</i></td>
+          <td className="mdl-data-table__cell--non-numeric">{result.responseText}</td>
+          <td className="mdl-data-table__cell--non-numeric">{result.solutionText}</td>
         </tr>
       );
     });
@@ -29,20 +25,20 @@ var Results = React.createClass({
       <div className="results">
         <h2 className="mdl-typography--title">Results</h2>
         <h2 className="mdl-typography--headline">You scored {score}/{this.props.quizLength}</h2>
-        <div className="mdl-grid">
-        <table>
+
+        <table className="mdl-data-table mdl-js-data-table">
           <thead>
           <tr>
             <th></th>
-            <th>Your answer</th>
-            <th>Correct answer</th>
+            <th className="mdl-data-table__cell--non-numeric">Your answer</th>
+            <th className="mdl-data-table__cell--non-numeric">Correct answer</th>
           </tr>
           </thead>
           <tbody>
           {results}
           </tbody>
         </table>
-        </div>
+
         <button className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" onClick={this.props.finish}>finish</button>
       </div>
     );

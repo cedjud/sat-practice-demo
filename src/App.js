@@ -91,12 +91,7 @@ var App = React.createClass({
             <Passage data={this.props.data.passage} isActive={this.state.view === 'quiz'} activeQuestion={this.state.currentQuestion} />
           </div>
           <div className="mdl-cell mdl-cell--6-col quiz" >
-            <ReactCSSTransitionGroup
-              transitionName="view"
-              transitionEnterTimeout={500}
-              transitionLeaveTimeout={500}>
               {view}
-            </ReactCSSTransitionGroup>
           </div>
         </main>
       </div>
