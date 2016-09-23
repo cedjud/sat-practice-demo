@@ -12,9 +12,9 @@ var Quiz = React.createClass({
       currentCard: 0
     };
   },
-  displayNextCard: function(result, givenAnswer, correctAnswer){
+  displayNextCard: function(result){
     console.log('Quiz notified');
-    this.props.onAnswerSubmit(result, givenAnswer, correctAnswer);
+    this.props.onAnswerSubmit(result);
     this.setState({
       currentCard: this.state.currentCard + 1
     });

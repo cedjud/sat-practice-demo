@@ -14,18 +14,14 @@ var App = React.createClass({
       quizResult: 0,
       quizActive: false,
       resultsActive: false,
-      givenAnswers: [],
-      correctAnswers: []
+      results: []
     };
   },
-  handleAnswerClick: function(value, givenAnswer, correctAnswer){
+  handleAnswerClick: function(result){
     if (this.state.currentQuestion < this.props.data.cards.length - 1){
       this.setState({
         currentQuestion: this.state.currentQuestion + 1,
-        quizResult: this.state.quizResult + value,
-        givenAnswers: this.state.givenAnswers.concat(givenAnswer),
-        correctAnswers: this.state.correctAnswers.concat(correctAnswer),
-
+        results: this.state.results.concat(result)
       });
       this.scrollText();
     } else {
@@ -40,9 +36,7 @@ var App = React.createClass({
       currentQuestion: 0,
       resultsActive: false,
       quizResult: 0,
-      givenAnswers: [],
-      correctAnswers: []
-
+      results: []
     });
     // Reset the text
     this.scrollText(0);
@@ -67,7 +61,8 @@ var App = React.createClass({
     })
   },
   render() {
-    var results = this.state.resultsActive ? <Results correctAnswers={this.state.correctAnswers} givenAnswers={this.state.givenAnswers} score={this.state.quizResult} quizLength={this.props.data.cards.length} finish={this.finishQuiz} /> : null;
+    // var results = this.state.resultsActive ? <Results correctAnswers={this.state.correctAnswers} givenAnswers={this.state.givenAnswers} score={this.state.quizResult} quizLength={this.props.data.cards.length} finish={this.finishQuiz} /> : null;
+    var results = this.state.resultsActive ? <Results results={this.state.results} quizLength={this.props.data.cards.length} finish={this.finishQuiz} /> : null;
     var instructions = this.state.quizActive || this.state.resultsActive ? null : <Instructions data={this.props.data.instructions} startQuiz={this.handleQuizActive} />;
     var quiz = this.state.quizActive ? <Quiz data={this.props.data.cards} isActive={this.state.quizActive} activeQuestion={this.state.currentQuestion} onAnswerSubmit={this.handleAnswerClick}/> : null;
     return (

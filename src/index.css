@@ -107,6 +107,12 @@ body {
     content: "";
     background-color: #37474f; }
 
+.results tr {
+  border-bottom: 1px solid #ccc; }
+  .results tr th {
+    text-align: left; }
+  .results tr td, .results tr th {
+    padding: 5px; }
 .results ul {
   list-style: none;
   padding-left: 0px;

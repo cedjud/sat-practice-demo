@@ -2,21 +2,31 @@ import React from 'react';
 import classNames from 'classnames';
 
 var Card = React.createClass({
-  handleAnswerClick: function(e){
-    var result;
+  handleResponseClick: function(e){
+    var isCorrect;
+    var result = {};
+    // Get text of solution
+    var solutionText = this.props.solutionText;
+    // Get response text
+    var responseText = e.target.innerHTML;
+    // Get response value
+    var responseValue = e.target.classList[1].split('-')[1];
 
-    var correctAnswer = this.props.solutionText;
-    var selectedAnswer = e.target.innerHTML;
-
-    var givenAnswer = e.target.classList[1].split('-')[1];
-    if (givenAnswer === this.props.solution){
+    // Check if response is correct
+    if (responseValue === this.props.solution){
       console.log('correct!');
-      result = 1;
+      isCorrect = true;
     } else {
       console.log('wrong!');
-      result = 0;
+      isCorrect = false
     }
-    this.props.onAnswerSubmit(result, selectedAnswer, correctAnswer);
+    result = {
+      isCorrect: isCorrect,
+      solutionText: solutionText,
+      responseText: responseText
+    }
+    // this.props.onAnswerSubmit(isCorrect, responseText, solutionText);
+    this.props.onAnswerSubmit(result);
   },
   render(){
     var cardClasses = classNames({
@@ -30,10 +40,10 @@ var Card = React.createClass({
           <div className="mdl-card__title">
             <h4 className="question__title mdl-card__title-text">{this.props.title}</h4>
           </div>
-          <p className="question__answer answer-A" onClick={this.handleAnswerClick}>{this.props.answerA}</p>
-          <p className="question__answer answer-B" onClick={this.handleAnswerClick}>{this.props.answerB}</p>
-          <p className="question__answer answer-C" onClick={this.handleAnswerClick}>{this.props.answerC}</p>
-          <p className="question__answer answer-D" onClick={this.handleAnswerClick}>{this.props.answerD}</p>
+          <p className="question__answer answer-A" onClick={this.handleResponseClick}>{this.props.answerA}</p>
+          <p className="question__answer answer-B" onClick={this.handleResponseClick}>{this.props.answerB}</p>
+          <p className="question__answer answer-C" onClick={this.handleResponseClick}>{this.props.answerC}</p>
+          <p className="question__answer answer-D" onClick={this.handleResponseClick}>{this.props.answerD}</p>
           <p className="question__solution">(solution: {this.props.solution})</p>
         </div>
     );

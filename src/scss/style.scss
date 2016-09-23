@@ -129,6 +129,18 @@ body {
 }
 
 .results {
+
+  tr {
+    border-bottom: 1px solid #ccc;
+
+    th {
+      text-align: left;
+    }
+    td, th {
+      padding: 5px;
+    }
+  }
+
   ul {
     list-style: none;
     padding-left: 0px;
