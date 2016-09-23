@@ -11,22 +11,10 @@ var App = React.createClass({
   getInitialState: function(){
     return {
       currentQuestion: 0,
+      index: 0,
       view: 'instructions',
       results: []
     };
-  },
-  handleAnswerClick: function(result){
-    if (this.state.currentQuestion < this.props.data.cards.length - 1){
-      this.setState({
-        currentQuestion: this.state.currentQuestion + 1,
-        results: this.state.results.concat(result)
-      });
-      this.scrollText();
-    } else {
-      this.setState({
-        view: 'results'
-      })
-    }
   },
   startQuiz: function(){
     // Set state.view to quiz
@@ -38,16 +26,29 @@ var App = React.createClass({
     // Reset state
     // Set state.view to instructions
     this.setState({
-      currentQuestion: 0,
       resultsActive: false,
       quizResult: 0,
       results: [],
       view: 'instructions'
     });
-    // Reset the text
+    // Scroll Text Passage back to top
     this.scrollText(0);
   },
-
+  handleAnswerClick: function(result){
+    // if (this.state.currentQuestion < this.props.data.cards.length - 1){
+    if (this.state.index < this.props.data.cards.length - 1){
+      this.setState({
+        // currentQuestion: this.state.currentQuestion + 1,
+        index: this.state.index + 1,
+        results: this.state.results.concat(result)
+      });
+      this.scrollText();
+    } else {
+      this.setState({
+        view: 'results'
+      })
+    }
+  },
   scrollText: function(value){
     // Scroll Text Passage to given value or get passage highlight offset and scroll to it
     //
@@ -64,14 +65,14 @@ var App = React.createClass({
     document.getElementsByClassName('text')[0].scrollTop = distance;
   },
   render() {
-    // Display Component based on state.view
+    // Display Component based on string in state.view
     var view;
     switch (this.state.view) {
       case 'instructions':
         view = <Instructions data={this.props.data.instructions} startQuiz={this.startQuiz} />
         break;
       case 'quiz':
-        view = <Quiz data={this.props.data.cards} isActive={true} activeQuestion={this.state.currentQuestion} onAnswerSubmit={this.handleAnswerClick}/>
+        view = <Quiz data={this.props.data.cards} isActive={true} onAnswerSubmit={this.handleAnswerClick}/>
         break;
       case 'results':
         view = <Results results={this.state.results} quizLength={this.props.data.cards.length} finish={this.finishQuiz} />
@@ -80,7 +81,7 @@ var App = React.createClass({
         view = <h3>Something went wrong</h3>
     };
     return (
-      <div className="mdl-layout mdl-js-layout ">
+      <div className="mdl-layout mdl-js-layout">
         <header className="mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600 is-casting-shadow">
           <div className="mdl-layout__header-row">
             <span className="mdl-layout-title">SE Cards - Quiz Demo</span>
@@ -88,9 +89,9 @@ var App = React.createClass({
         </header>
         <main className="mdl-layout__content mdl-grid">
           <div className="text mdl-cell mdl-cell--6-col mdl-color--blue-grey-800 mdl-color-text--blue-grey-50">
-            <Passage data={this.props.data.passage} isActive={this.state.view === 'quiz'} activeQuestion={this.state.currentQuestion} />
+            <Passage data={this.props.data.passage} isActive={this.state.view === 'quiz'} activeQuestion={this.state.index} />
           </div>
-          <div className="mdl-cell mdl-cell--6-col quiz" >
+          <div className="quiz mdl-cell mdl-cell--6-col">
               {view}
           </div>
         </main>

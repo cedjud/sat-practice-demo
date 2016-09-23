@@ -19,14 +19,11 @@ var Quiz = React.createClass({
   },
   render(){
     var self = this;
-    var activeCard = this.props.activeQuestion;
     var defaultTitle = "How might the passage be revised to improve the expression of ideas?"
     var cardNodes = this.props.data.map( function( cardNode, index ) {
-      var isActive = activeCard === index;
       return (
         <Card
           onAnswerSubmit={self.displayNextCard}
-          activeCard={isActive}
           key={cardNode.id}
           title={cardNode.title !== "" ? cardNode.title : defaultTitle}
           answerA={cardNode.A}
