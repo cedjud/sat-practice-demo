@@ -102,7 +102,8 @@ body {
   margin: 0px 2px; }
 .passage__highlight {
   color: #666;
-  background-color: #eee; }
+  background-color: #eee;
+  border-radius: 1px; }
   .passage__highlight:before, .passage__highlight:after {
     content: "";
     background-color: #37474f; }
@@ -138,5 +139,21 @@ body {
   opacity: 0.01;
   left: -100%;
   transition: all 200ms ease-in; }
+
+.view-enter {
+  opacity: 0.01;
+  left: 100%; }
+
+.view-enter.view-enter-active {
+  opacity: 1;
+  transition: all 500ms ease-in; }
+
+.view-leave {
+  opacity: 1;
+  left: 0%; }
+
+.view-leave.card-leave-active {
+  opacity: 0.01;
+  transition: all 500ms ease-in; }
 
 /*# sourceMappingURL=index.css.map */

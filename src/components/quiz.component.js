@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-
-// Import Card component
+// Import components
 import Card from './card.component';
 
 var Quiz = React.createClass({
-
   getInitialState: function(){
     return {
       currentCard: 0
@@ -18,7 +16,6 @@ var Quiz = React.createClass({
     this.setState({
       currentCard: this.state.currentCard + 1
     });
-
   },
   render(){
     var self = this;

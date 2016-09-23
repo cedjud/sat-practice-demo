@@ -114,10 +114,16 @@ body {
     display: inline-block;
     padding: 1px;
     margin: 0px 2px;
+
+    &.passage__highlight-blank {
+
+    }
   }
+
   &__highlight {
     color: #666;
     background-color: #eee;
+    border-radius: 1px;
 
     &:before,
     &:after {
@@ -177,4 +183,26 @@ body {
   opacity: 0.01;
   left: -100%;
   transition: all 200ms ease-in;
+}
+
+
+// view animation
+.view-enter {
+  opacity: 0.01;
+  left: 100%;
+}
+
+.view-enter.view-enter-active {
+  opacity: 1;
+  transition: all 500ms ease-in;
+}
+
+.view-leave {
+  opacity: 1;
+  left: 0%;
+}
+
+.view-leave.card-leave-active {
+  opacity: 0.01;
+  transition: all 500ms ease-in;
 }

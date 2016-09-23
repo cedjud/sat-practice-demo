@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 // import components
 import Instructions from './components/instructions.component';
@@ -6,14 +7,11 @@ import Passage from './components/passage.component';
 import Quiz from './components/quiz.component';
 import Results from './components/results.component';
 
-
 var App = React.createClass({
   getInitialState: function(){
     return {
       currentQuestion: 0,
-      quizResult: 0,
-      quizActive: false,
-      resultsActive: false,
+      view: 'instructions',
       results: []
     };
   },
@@ -26,26 +24,36 @@ var App = React.createClass({
       this.scrollText();
     } else {
       this.setState({
-        resultsActive: true,
-        quizActive: false,
+        view: 'results'
       })
     }
   },
+  startQuiz: function(){
+    // Set state.view to quiz
+    this.setState({
+      view: 'quiz'
+    })
+  },
   finishQuiz: function(){
+    // Reset state
+    // Set state.view to instructions
     this.setState({
       currentQuestion: 0,
       resultsActive: false,
       quizResult: 0,
-      results: []
+      results: [],
+      view: 'instructions'
     });
     // Reset the text
     this.scrollText(0);
   },
+
   scrollText: function(value){
+    // Scroll Text Passage to given value or get passage highlight offset and scroll to it
+    //
     // TODO: Find out the React way to get and manipulate standard DOM elements
     // see here https://facebook.github.io/react/docs/working-with-the-browser.html
     // or here: https://facebook.github.io/react/docs/more-about-refs.html
-    //
     // Animate text scrolling
     var distance;
     if (value !== undefined) {
@@ -55,16 +63,22 @@ var App = React.createClass({
     }
     document.getElementsByClassName('text')[0].scrollTop = distance;
   },
-  handleQuizActive: function(){
-    this.setState({
-      quizActive: !this.state.quizActive
-    })
-  },
   render() {
-    // var results = this.state.resultsActive ? <Results correctAnswers={this.state.correctAnswers} givenAnswers={this.state.givenAnswers} score={this.state.quizResult} quizLength={this.props.data.cards.length} finish={this.finishQuiz} /> : null;
-    var results = this.state.resultsActive ? <Results results={this.state.results} quizLength={this.props.data.cards.length} finish={this.finishQuiz} /> : null;
-    var instructions = this.state.quizActive || this.state.resultsActive ? null : <Instructions data={this.props.data.instructions} startQuiz={this.handleQuizActive} />;
-    var quiz = this.state.quizActive ? <Quiz data={this.props.data.cards} isActive={this.state.quizActive} activeQuestion={this.state.currentQuestion} onAnswerSubmit={this.handleAnswerClick}/> : null;
+    // Display Component based on state.view
+    var view;
+    switch (this.state.view) {
+      case 'instructions':
+        view = <Instructions data={this.props.data.instructions} startQuiz={this.startQuiz} />
+        break;
+      case 'quiz':
+        view = <Quiz data={this.props.data.cards} isActive={true} activeQuestion={this.state.currentQuestion} onAnswerSubmit={this.handleAnswerClick}/>
+        break;
+      case 'results':
+        view = <Results results={this.state.results} quizLength={this.props.data.cards.length} finish={this.finishQuiz} />
+        break;
+      default:
+        view = <h3>Something went wrong</h3>
+    };
     return (
       <div className="mdl-layout mdl-js-layout ">
         <header className="mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600 is-casting-shadow">
@@ -74,12 +88,15 @@ var App = React.createClass({
         </header>
         <main className="mdl-layout__content mdl-grid">
           <div className="text mdl-cell mdl-cell--6-col mdl-color--blue-grey-800 mdl-color-text--blue-grey-50">
-            <Passage data={this.props.data.passage} isActive={this.state.quizActive} activeQuestion={this.state.currentQuestion} />
+            <Passage data={this.props.data.passage} isActive={this.state.view === 'quiz'} activeQuestion={this.state.currentQuestion} />
           </div>
           <div className="mdl-cell mdl-cell--6-col quiz" >
-            {instructions}
-            {quiz}
-            {results}
+            <ReactCSSTransitionGroup
+              transitionName="view"
+              transitionEnterTimeout={500}
+              transitionLeaveTimeout={500}>
+              {view}
+            </ReactCSSTransitionGroup>
           </div>
         </main>
       </div>
