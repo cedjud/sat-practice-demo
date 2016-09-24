@@ -30,8 +30,8 @@ var Quiz = React.createClass({
       <div>
         <ReactCSSTransitionGroup
         transitionName="card"
-        transitionEnterTimeout={500}
-        transitionLeaveTimeout={50}>
+        transitionEnterTimeout={250}
+        transitionLeaveTimeout={250}>
           {cardNodes[this.props.index]}
         </ReactCSSTransitionGroup>
       </div>

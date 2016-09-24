@@ -1,7 +1,6 @@
 import React from 'react';
 
 var Passage = React.createClass({
-  // var newString;
   getInitialState: function(){
     return {
       text: [],

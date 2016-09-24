@@ -36,7 +36,7 @@ var Card = React.createClass({
       'is-active': this.props.activeCard
     });
     return (
-        <div className={cardClasses} id="question-1">
+        <div className={cardClasses}>
           <div className="mdl-card__title">
             <h4 className="card__title mdl-card__title-text">{this.props.title}</h4>
           </div>

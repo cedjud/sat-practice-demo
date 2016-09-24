@@ -1,6 +1,7 @@
 // Question card styles
 .card {
   position: absolute;
+  // top: 56px;
   width: 100%;
   margin-bottom: 8px;
   transition: all .2s;
@@ -84,22 +85,20 @@
 
 // card animation
 .card-enter {
-  // opacity: 0.01;
   left: 100%;
+      transition: all 250ms ease-in;
 
   &.card-enter-active {
-    // opacity: 1;
     left: 0%;
-    transition: all 500ms ease-in;
+
   }
 }
 .card-leave {
-  // opacity: 1;
   left: 0%;
+  transition: all 250ms ease-in;
+
 
   &.card-leave-active {
-    // opacity: 0.01;
     left: -100%;
-    transition: all 50ms ease-in;
   }
 }

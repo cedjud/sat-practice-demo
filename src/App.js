@@ -85,7 +85,6 @@ var App = React.createClass({
           <Passage data={this.props.data.passage} isActive={this.state.view === 'quiz'} index={this.state.index} />
         </div>
         <main className="mdl-layout__content">
-
           <div className="quiz">
               {view}
           </div>

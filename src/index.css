@@ -137,15 +137,15 @@ body {
     .quiz .card .answer-D:before {
       content: 'D'; }
   .quiz .card-enter {
-    left: 100%; }
+    left: 100%;
+    transition: all 250ms ease-in; }
     .quiz .card-enter.card-enter-active {
-      left: 0%;
-      transition: all 500ms ease-in; }
+      left: 0%; }
   .quiz .card-leave {
-    left: 0%; }
+    left: 0%;
+    transition: all 250ms ease-in; }
     .quiz .card-leave.card-leave-active {
-      left: -100%;
-      transition: all 50ms ease-in; }
+      left: -100%; }
   .quiz .results {
     display: flex;
     flex-flow: column nowrap; }
@@ -162,9 +162,6 @@ body {
     .quiz .results button {
       margin: 24px 0px;
       align-self: flex-end; }
-  .quiz span {
-    display: flex;
-    justify-content: center; }
 
 .text {
   overflow-y: scroll; }
