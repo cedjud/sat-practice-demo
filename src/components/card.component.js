@@ -25,7 +25,6 @@ var Card = React.createClass({
       solutionText: solutionText,
       responseText: responseText
     }
-    // this.props.onAnswerSubmit(isCorrect, responseText, solutionText);
     this.props.onAnswerSubmit(result);
   },
   render(){

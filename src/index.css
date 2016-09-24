@@ -19,12 +19,12 @@ body {
   z-index: 6; }
 
 .mdl-layout__drawer {
-  padding-top: 64px;
   padding: 10px; }
   @media (min-width: 1200px) {
     .mdl-layout__drawer {
       width: 50%;
-      transform: translateX(50%); } }
+      transform: translateX(50%);
+      padding-top: 64px; } }
 
 .mdl-layout--fixed-drawer > .mdl-layout__content {
   padding: 10px; }
@@ -58,7 +58,7 @@ body {
     font-weight: 300; }
   .quiz .question {
     position: absolute;
-    width: calc(100%);
+    width: 100%;
     transition: all .2s; }
     .quiz .question p {
       padding: 10px;

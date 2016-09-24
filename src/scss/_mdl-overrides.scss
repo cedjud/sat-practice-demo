@@ -15,11 +15,11 @@
 }
 
 .mdl-layout__drawer {
-  padding-top: 64px;
   padding: 10px;
   @include respond-to('large'){
     width: 50%;
     transform: translateX(50%);
+    padding-top: 64px;
   }
 }
 

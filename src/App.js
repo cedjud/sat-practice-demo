@@ -12,7 +12,7 @@ var App = React.createClass({
     return {
       // Global index. This is incremented when a question is answered
       // and is passed to the Passage component, where it is used to highlight the
-      // relevant text. Replace this when implementing Redux.
+      // relevant text. Replace this when implementing Redux or ReactLink
       index: 0,
       view: 'instructions',
       results: []
@@ -29,8 +29,8 @@ var App = React.createClass({
     // Reset state
     // Set state.view to instructions
     this.setState({
-      resultsActive: false,
-      quizResult: 0,
+      // resultsActive: false,
+      index: 0,
       results: [],
       view: 'instructions'
     });
@@ -46,10 +46,14 @@ var App = React.createClass({
         results: this.state.results.concat(result)
       });
       this.scrollText();
-    } else {
+    }
+    else if (this.state.index === this.props.data.cards.length - 1){
       this.setState({
+        index: this.state.index + 1,
+        results: this.state.results.concat(result),
         view: 'results'
-      })
+      });
+      this.scrollText(0);
     }
   },
 
@@ -66,16 +70,21 @@ var App = React.createClass({
     } else {
       this.toggleHighlight(this.state.index + 1);
       var highlight = document.getElementsByClassName('passage__highlight');
-      distance = highlight[this.state.index].offsetTop - 15;
+      distance = highlight[this.state.index].offsetTop - 64;
     }
     document.getElementsByClassName('text')[0].scrollTop = distance;
   },
+
   toggleHighlight: function(index){
     // Clear existing highlight
     this.clearHighlight();
     // Find highligh at index and toggle active state
-    document.getElementsByClassName('passage__highlight')[index]
-      .classList.toggle('passage__highlight-active');
+    var highlight = document.getElementsByClassName('passage__highlight');
+    if (highlight[index] !== undefined) {
+      highlight[index].classList.toggle('passage__highlight-active');
+    } else {
+      console.log('No passage highlight found');
+    }
   },
 
   clearHighlight: function(){
