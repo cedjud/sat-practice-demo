@@ -39,7 +39,7 @@ var Passage = React.createClass({
         string: highlight.text
       }
       strings.push(highlightString);
-      textIndex = parseInt(highlight.index) + highlight.text.length;
+      textIndex = parseInt(highlight.index, 10) + highlight.text.length;
       });
       return strings;
   },
@@ -89,7 +89,6 @@ var Passage = React.createClass({
     // Make nodes from text strings
     var text = this.state.text.map(function(string, index){
       switch (string.type) {
-
         // If text string check if it has a line break. If it does add a
         // block element to set height between spans.
         case 'text':
@@ -107,18 +106,17 @@ var Passage = React.createClass({
             return (
               <span key={index} className="passage__copy">{string.string}</span>
             );
-          }
+          };
           break;
-        // If text string is a highlight.
         case 'highlight':
           return (
             <span key={index} className="passage__highlight">{string.string}</span>
           );
+          break;
         default:
           return (
             <span key={index}>Something went wrong</span>
-          )
-
+          );
       }
     });
 
