@@ -4,12 +4,7 @@ var Passage = React.createClass({
   // var newString;
   getInitialState: function(){
     return {
-      text: [
-        {
-          type : "text",
-          string : "sometext"
-        }
-      ],
+      text: [],
     };
   },
 
@@ -39,16 +34,66 @@ var Passage = React.createClass({
       strings.push(highlightString);
       textIndex = parseInt(highlight.index) + highlight.text.length;
       });
-      console.log(strings);
       return strings;
   },
 
+  componentDidUpdate: function(){
+    if (this.props.isActive) {
+    this.scrollText();
+  } else {
+    this.scrollText(0);
+  }
+    console.log('update');
+  },
+
+  toggleHighlight: function(index){
+    // Clear existing highlight
+    this.clearHighlight();
+    // Find highligh at index and toggle active state
+    var highlight = document.getElementsByClassName('passage__highlight');
+    if (highlight[index] !== undefined) {
+      highlight[index].classList.toggle('passage__highlight-active');
+    } else {
+      console.log('No passage highlight found');
+    }
+  },
+
+  clearHighlight: function(){
+    // Get existing highlight
+    var clearHighlight = document.getElementsByClassName('passage__highlight-active') || [];
+    // If there are any active hightlights
+    if (clearHighlight.length > 0){
+      clearHighlight[0].classList.toggle('passage__highlight-active');
+    }
+  },
+
+  scrollText: function(value){
+    // Scroll Text Passage to given value or get passage highlight offset and scroll to it
+    // Is there a "React way" to select elements?
+    // TODO: Animate text scrolling
+
+    var distance;
+
+    if (value !== undefined) {
+      distance = value;
+      this.clearHighlight();
+    } else {
+      this.toggleHighlight(this.props.index);
+      var highlights = document.getElementsByClassName('passage__highlight');
+      if (this.props.index < highlights.length){
+        distance = highlights[this.props.index].offsetTop - 128;
+      }
+    }
+    document.getElementsByClassName('text')[0].scrollTop = distance;
+  },
+
   render(){
-
+    // Make nodes from text strings
     var text = this.state.text.map(function(string, index){
-
       switch (string.type) {
 
+        // If text string check if it has a line break. If it does add a
+        // block element to set height between spans.
         case 'text':
           if (string.string.indexOf('\n') !== -1){
             var tempStringArray = string.string.split('\n');
@@ -59,13 +104,14 @@ var Passage = React.createClass({
                 <span className="passage__copy">{tempStringArray[1]}</span>
               </span>
             );
+          // Else return single span.
           } else {
             return (
               <span key={index} className="passage__copy">{string.string}</span>
             );
           }
           break;
-
+        // If text string is a highlight.
         case 'highlight':
           return (
             <span key={index} className="passage__highlight">{string.string}</span>
@@ -81,7 +127,7 @@ var Passage = React.createClass({
     return (
       <div className="passage">
         <h3 className="passage__title mdl-typography--headline">{this.props.data.title}</h3>
-          {text}
+        {text}
       </div>
     );
   }

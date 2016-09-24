@@ -23,7 +23,7 @@ var App = React.createClass({
     this.setState({
       view: 'quiz'
     });
-    this.toggleHighlight(this.state.index);
+    // this.toggleHighlight(this.state.index);
   },
   finishQuiz: function(){
     // Reset state
@@ -34,18 +34,14 @@ var App = React.createClass({
       results: [],
       view: 'instructions'
     });
-    // Scroll Text Passage back to top
-    this.scrollText(0);
   },
-  handleAnswerClick: function(result){
-    // if (this.state.currentQuestion < this.props.data.cards.length - 1){
+
+  handleCardAnswerClick: function(result){
     if (this.state.index < this.props.data.cards.length - 1){
       this.setState({
-        // currentQuestion: this.state.currentQuestion + 1,
         index: this.state.index + 1,
         results: this.state.results.concat(result)
       });
-      this.scrollText();
     }
     else if (this.state.index === this.props.data.cards.length - 1){
       this.setState({
@@ -53,53 +49,13 @@ var App = React.createClass({
         results: this.state.results.concat(result),
         view: 'results'
       });
-      this.scrollText(0);
-    }
-  },
-
-  scrollText: function(value){
-    // Scroll Text Passage to given value or get passage highlight offset and scroll to it
-    // Is there a "React way" to select elements?
-    // TODO: Animate text scrolling
-
-    var distance;
-
-    if (value !== undefined) {
-      distance = value;
-      this.clearHighlight();
-    } else {
-      this.toggleHighlight(this.state.index + 1);
-      var highlight = document.getElementsByClassName('passage__highlight');
-      distance = highlight[this.state.index].offsetTop - 64;
-    }
-    document.getElementsByClassName('text')[0].scrollTop = distance;
-  },
-
-  toggleHighlight: function(index){
-    // Clear existing highlight
-    this.clearHighlight();
-    // Find highligh at index and toggle active state
-    var highlight = document.getElementsByClassName('passage__highlight');
-    if (highlight[index] !== undefined) {
-      highlight[index].classList.toggle('passage__highlight-active');
-    } else {
-      console.log('No passage highlight found');
-    }
-  },
-
-  clearHighlight: function(){
-    // Get existing highlight
-    var clearHighlight = document.getElementsByClassName('passage__highlight-active') || [];
-    // If there are any active hightlights
-    if (clearHighlight.length > 0){
-      clearHighlight[0].classList.toggle('passage__highlight-active');
     }
   },
 
   render() {
-    // Display Component based on string in state.view
     var view;
 
+    // Display Component based on string in state.view
     switch (this.state.view) {
 
       case 'instructions':
@@ -107,7 +63,7 @@ var App = React.createClass({
         break;
 
       case 'quiz':
-        view = <Quiz data={this.props.data.cards} isActive={true} onAnswerSubmit={this.handleAnswerClick}/>
+        view = <Quiz data={this.props.data.cards} index={this.state.index} isActive={true} onCardAnswerClick={this.handleCardAnswerClick}/>
         break;
 
       case 'results':
@@ -127,7 +83,7 @@ var App = React.createClass({
         </header>
 
         <div className="text mdl-layout__drawer mdl-color--blue-grey-800 mdl-color-text--blue-grey-50">
-          <Passage data={this.props.data.passage} isActive={this.state.view === 'quiz'} activeQuestion={this.state.index} />
+          <Passage data={this.props.data.passage} isActive={this.state.view === 'quiz'} index={this.state.index} />
         </div>
         <main className="mdl-layout__content">
 

@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 var Card = React.createClass({
-  handleResponseClick: function(e){
+  handleCardAnswerClick: function(e){
     var isCorrect;
     var result = {};
     // Get text of solution
@@ -25,7 +25,8 @@ var Card = React.createClass({
       solutionText: solutionText,
       responseText: responseText
     }
-    this.props.onAnswerSubmit(result);
+    // Pass result to Quiz component
+    this.props.onCardAnswerClick(result);
   },
   render(){
     var cardClasses = classNames({
@@ -39,10 +40,10 @@ var Card = React.createClass({
           <div className="mdl-card__title">
             <h4 className="question__title mdl-card__title-text">{this.props.title}</h4>
           </div>
-          <p className="question__answer answer-A" onClick={this.handleResponseClick}>{this.props.answerA}</p>
-          <p className="question__answer answer-B" onClick={this.handleResponseClick}>{this.props.answerB}</p>
-          <p className="question__answer answer-C" onClick={this.handleResponseClick}>{this.props.answerC}</p>
-          <p className="question__answer answer-D" onClick={this.handleResponseClick}>{this.props.answerD}</p>
+          <p className="question__answer answer-A" onClick={this.handleCardAnswerClick}>{this.props.answerA}</p>
+          <p className="question__answer answer-B" onClick={this.handleCardAnswerClick}>{this.props.answerB}</p>
+          <p className="question__answer answer-C" onClick={this.handleCardAnswerClick}>{this.props.answerC}</p>
+          <p className="question__answer answer-D" onClick={this.handleCardAnswerClick}>{this.props.answerD}</p>
           <p className="question__solution">(solution: {this.props.solution})</p>
         </div>
     );

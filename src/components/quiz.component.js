@@ -5,25 +5,16 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Card from './card.component';
 
 var Quiz = React.createClass({
-  getInitialState: function(){
-    return {
-      currentCard: 0
-    };
-  },
-  displayNextCard: function(result){
-    console.log('Quiz notified');
-    this.props.onAnswerSubmit(result);
-    this.setState({
-      currentCard: this.state.currentCard + 1
-    });
+  handleCardAnswerClick: function(result){
+    //
+    this.props.onCardAnswerClick(result);
   },
   render(){
-    var self = this;
     var defaultTitle = "How might the passage be revised to improve the expression of ideas?"
-    var cardNodes = this.props.data.map( function( cardNode, index ) {
+    var cardNodes = this.props.data.map( ( cardNode, index ) => {
       return (
         <Card
-          onAnswerSubmit={self.displayNextCard}
+          onCardAnswerClick={this.handleCardAnswerClick}
           key={cardNode.id}
           title={cardNode.title !== "" ? cardNode.title : defaultTitle}
           answerA={cardNode.A}
@@ -41,7 +32,7 @@ var Quiz = React.createClass({
         transitionName="card"
         transitionEnterTimeout={200}
         transitionLeaveTimeout={200}>
-          {cardNodes[this.state.currentCard]}
+          {cardNodes[this.props.index]}
         </ReactCSSTransitionGroup>
       </div>
     );
