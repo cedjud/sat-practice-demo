@@ -15,8 +15,7 @@
 }
 
 .mdl-layout__drawer {
-  // width: 85%;
-  margin-top: 64px;
+  padding-top: 64px;
   padding: 10px;
   @include respond-to('large'){
     width: 50%;
@@ -31,16 +30,20 @@
   }
 }
 
-.mdl-layout__drawer-button {
+.mdl-layout__drawer.is-visible {
+  width: 90%;
+}
+
+.mdl-layout__header .mdl-layout__drawer-button {
+  color: #757575;
   @include respond-to('large'){
     display: none;
   }
 }
 
 .mdl-layout--fixed-drawer>.mdl-layout__header .mdl-layout__header-row {
-  padding: 0px 32px;
   @include respond-to('large'){
-    padding-left: 32px;
+    padding-left: 8px;
   }
 }
 

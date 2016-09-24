@@ -13,7 +13,6 @@ body {
 // Quiz panel styles
 .quiz {
   position: relative;
-  margin-left: 32px;
   padding-left: 0px;
 
   // Instructions view styles
@@ -29,7 +28,7 @@ body {
   // Question card styles
   .question {
     position: absolute;
-    width: calc(100% - 128px);
+    width: calc(100%);
     transition: all .2s;
 
     p {
@@ -48,6 +47,7 @@ body {
     &__answer {
       cursor: pointer;
       transition: all .2s;
+
       &:hover {
         background-color: darken(#FFF,5%);
         color: ligthen(#000,10%);
@@ -132,7 +132,6 @@ body {
     }
 
     &__copy {
-
     }
 
     span {
@@ -185,7 +184,6 @@ body {
   left: -100%;
   transition: all 200ms ease-in;
 }
-
 
 // view animation
 .view-enter {
