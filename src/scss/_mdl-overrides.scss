@@ -1,11 +1,52 @@
 // Adjustments to Material Design layout.
-.mdl-grid {
-  padding: 0px;
-}
+// .mdl-grid {
+//   padding: 0px;
+// }
+//
+// .mdl-cell {
+//   margin: 0px;
+//   padding: 32px;
+// }
 
-.mdl-cell {
-  margin: 0px;
-  padding: 32px;
+.mdl-layout__container {
+
+  .mdl-layout {
+
+    .mdl-layout__drawer {
+      padding: 10px;
+      padding-top: 56px;
+      width: 100%;
+      height: 35%;
+      transform: translateX(-100%);
+      z-index: 2;
+
+      @include small {
+        height: 296px;
+      }
+
+      @include medium {
+        height: 396px;
+      }
+
+      @include large{
+        padding-top: 64px;
+        transform: translateX(0%);
+        width: 50%;
+        height: 100%;
+      }
+
+      &.is-visible {
+        transform: translateX(0%);
+        ~ .mdl-layout__content.mdl-layout__content {
+          padding-top: 248px;
+          overflow-y: auto;
+          @include medium {
+            padding-top: 348px;
+          }
+        }
+      }
+    }
+  }
 }
 
 .root .mdl-layout--fixed-drawer.is-upgraded:not(.is-small-screen) > .mdl-layout__header {
@@ -14,39 +55,23 @@
   z-index: 6;
 }
 
-.mdl-layout__drawer {
-  padding: 10px;
-  @include respond-to('large'){
-    width: 50%;
-    transform: translateX(50%);
-    padding-top: 64px;
-  }
-}
-
 .mdl-layout--fixed-drawer > .mdl-layout__content {
   padding: 10px;
-  @include respond-to('large'){
+  @include large{
     margin-left: 50%;
   }
 }
 
-.mdl-layout__drawer.is-visible {
-  width: 90%;
-}
-
 .mdl-layout__header .mdl-layout__drawer-button {
   color: #757575;
-  @include respond-to('large'){
+  @include large{
     display: none;
   }
 }
 
-.mdl-layout--fixed-drawer>.mdl-layout__header .mdl-layout__header-row {
-  @include respond-to('large'){
-    padding-left: 8px;
-  }
+.mdl-layout__obfuscator {
+  display: none;
 }
-
 .mdl-data-table {
   white-space: normal;
 }

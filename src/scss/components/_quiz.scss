@@ -3,6 +3,13 @@
   position: relative;
   padding-left: 0px;
 
+  @include medium {
+    padding: 0px 32px;
+  }
+  @include large {
+    padding: 0px 32px;
+  }
+
   @import './instructions';
   @import './card';
   @import './results';

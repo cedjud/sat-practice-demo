@@ -4,9 +4,21 @@
 
   .passage {
 
-    padding: 0px 32px 128px 32px;
+    padding: 0px 16px 128px 16px;
+
+    @include medium {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+
+    @include large {
+      padding: 0px 32px 128px 32px;
+    }
 
     &__title {
+      @include small {
+        font-size: 16px;
+      }
     }
 
     &__copy,
@@ -31,13 +43,11 @@
           background-color: #37474f;
         }
       }
-
     }
 
     &__spacer {
       height: 16px;
     }
-
 
   }
 }

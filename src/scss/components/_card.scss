@@ -1,8 +1,19 @@
 // Question card styles
-.question {
+.card {
   position: absolute;
   width: 100%;
+  margin-bottom: 8px;
   transition: all .2s;
+
+  @include medium {
+    margin-top: 24px;
+    width: calc(100% - 64px);
+  }
+
+  @include large {
+    margin-top: 24px;
+    width: calc(100% - 64px);
+  }
 
   p {
     padding: 10px;
@@ -15,6 +26,9 @@
   }
 
   &__title {
+    @include small {
+      font-size: 16px;
+    }
   }
 
   &__answer {
@@ -65,5 +79,27 @@
   }
   .answer-D:before {
     content: 'D';
+  }
+}
+
+// card animation
+.card-enter {
+  opacity: 0.01;
+  left: 100%;
+
+  &.card-enter-active {
+    opacity: 1;
+    left: 0%;
+    transition: all 200ms ease-in;
+  }
+}
+.card-leave {
+  opacity: 1;
+  left: 0%;
+
+  &.card-leave-active {
+    opacity: 0.01;
+    left: -100%;
+    transition: all 200ms ease-in;
   }
 }

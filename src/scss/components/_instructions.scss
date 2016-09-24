@@ -1,9 +1,17 @@
 // Instructions view styles
-.directions {
+.instructions {
+  display: flex;
+  flex-flow: column nowrap;
+
   &__copy {
     line-height: 28px;
     letter-spacing: 1.1px;
     margin: 0 0 16px;
     font-weight: 300;
+  }
+
+  button {
+    margin: 24px 0px;
+    align-self: flex-end;
   }
 }

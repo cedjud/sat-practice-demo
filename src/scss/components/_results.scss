@@ -1,5 +1,9 @@
 // Results view styles.
 .results {
+
+  display: flex;
+  flex-flow: column nowrap;
+
   tr.correct {
     background-color: transparentize(green, 0.9);
     i {
@@ -16,4 +20,9 @@
   table {
     margin-bottom: 32px;
   }
+  button {
+    margin: 24px 0px;
+    align-self: flex-end;
+  }
+
 }

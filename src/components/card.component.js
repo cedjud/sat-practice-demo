@@ -32,19 +32,19 @@ var Card = React.createClass({
     var cardClasses = classNames({
       'mdl-card': true,
       'mdl-shadow--2dp': true,
-      'question': true,
+      'card': true,
       'is-active': this.props.activeCard
     });
     return (
         <div className={cardClasses} id="question-1">
           <div className="mdl-card__title">
-            <h4 className="question__title mdl-card__title-text">{this.props.title}</h4>
+            <h4 className="card__title mdl-card__title-text">{this.props.title}</h4>
           </div>
-          <p className="question__answer answer-A" onClick={this.handleCardAnswerClick}>{this.props.answerA}</p>
-          <p className="question__answer answer-B" onClick={this.handleCardAnswerClick}>{this.props.answerB}</p>
-          <p className="question__answer answer-C" onClick={this.handleCardAnswerClick}>{this.props.answerC}</p>
-          <p className="question__answer answer-D" onClick={this.handleCardAnswerClick}>{this.props.answerD}</p>
-          <p className="question__solution">(solution: {this.props.solution})</p>
+          <p className="card__answer answer-A" onClick={this.handleCardAnswerClick}>{this.props.answerA}</p>
+          <p className="card__answer answer-B" onClick={this.handleCardAnswerClick}>{this.props.answerB}</p>
+          <p className="card__answer answer-C" onClick={this.handleCardAnswerClick}>{this.props.answerC}</p>
+          <p className="card__answer answer-D" onClick={this.handleCardAnswerClick}>{this.props.answerD}</p>
+          <p className="card__solution">(solution: {this.props.solution})</p>
         </div>
     );
   }

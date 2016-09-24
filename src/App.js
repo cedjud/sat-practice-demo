@@ -81,7 +81,7 @@ var App = React.createClass({
           </div>
         </header>
 
-        <div className="text mdl-layout__drawer mdl-color--blue-grey-800 mdl-color-text--blue-grey-50">
+        <div className="text mdl-layout__drawer mdl-color--blue-grey-800 mdl-color-text--blue-grey-50 mdl-shadow--2dp">
           <Passage data={this.props.data.passage} isActive={this.state.view === 'quiz'} index={this.state.index} />
         </div>
         <main className="mdl-layout__content">
