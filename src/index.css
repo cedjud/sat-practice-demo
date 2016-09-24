@@ -137,19 +137,15 @@ body {
     .quiz .card .answer-D:before {
       content: 'D'; }
   .quiz .card-enter {
-    opacity: 0.01;
     left: 100%; }
     .quiz .card-enter.card-enter-active {
-      opacity: 1;
       left: 0%;
-      transition: all 200ms ease-in; }
+      transition: all 500ms ease-in; }
   .quiz .card-leave {
-    opacity: 1;
     left: 0%; }
     .quiz .card-leave.card-leave-active {
-      opacity: 0.01;
       left: -100%;
-      transition: all 200ms ease-in; }
+      transition: all 50ms ease-in; }
   .quiz .results {
     display: flex;
     flex-flow: column nowrap; }
