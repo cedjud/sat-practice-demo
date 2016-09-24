@@ -1,0 +1,69 @@
+// Question card styles
+.question {
+  position: absolute;
+  width: 100%;
+  transition: all .2s;
+
+  p {
+    padding: 10px;
+    margin-bottom: 0px;
+    text-align: left;
+    position: relative;
+    padding-left: 51px;
+    line-height: 28px;
+    font-weight: 300;
+  }
+
+  &__title {
+  }
+
+  &__answer {
+    cursor: pointer;
+    transition: all .2s;
+
+    &:hover {
+      background-color: darken(#FFF,5%);
+      color: ligthen(#000,10%);
+
+      &:before {
+        color: #777;
+        background-color: #ccc;
+      }
+    }
+
+    &:before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      left: 16px;
+      top: 10px;
+      line-height: 25px;
+      padding-top: 1px;
+      width: 25px;
+      height: 25px;
+      background-color: #777;
+      color: #eee;
+      border-radius: 15px;
+      text-align: center;
+      font-weight: 100;
+      transition: all .2s;
+    }
+  }
+
+  &__solution {
+    font-style: italic;
+  }
+
+  .answer-A:before {
+    content: 'A';
+  }
+  .answer-B:before {
+    content: 'B';
+  }
+  .answer-C:before {
+    content: 'C';
+  }
+  .answer-D:before {
+    content: 'D';
+  }
+}

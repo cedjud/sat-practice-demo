@@ -14,6 +14,14 @@ var Passage = React.createClass({
     });
   },
 
+  componentDidUpdate: function(){
+      if (this.props.isActive) {
+      this.scrollText();
+    } else {
+      this.scrollText(0);
+    }
+  },
+
   parsePassageBody: function(text, highlights){
     var strings = [];
     var refText = text;
@@ -37,15 +45,6 @@ var Passage = React.createClass({
       return strings;
   },
 
-  componentDidUpdate: function(){
-    if (this.props.isActive) {
-    this.scrollText();
-  } else {
-    this.scrollText(0);
-  }
-    console.log('update');
-  },
-
   toggleHighlight: function(index){
     // Clear existing highlight
     this.clearHighlight();
@@ -61,6 +60,7 @@ var Passage = React.createClass({
   clearHighlight: function(){
     // Get existing highlight
     var clearHighlight = document.getElementsByClassName('passage__highlight-active') || [];
+
     // If there are any active hightlights
     if (clearHighlight.length > 0){
       clearHighlight[0].classList.toggle('passage__highlight-active');
@@ -71,7 +71,6 @@ var Passage = React.createClass({
     // Scroll Text Passage to given value or get passage highlight offset and scroll to it
     // Is there a "React way" to select elements?
     // TODO: Animate text scrolling
-
     var distance;
 
     if (value !== undefined) {

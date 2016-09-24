@@ -1,0 +1,19 @@
+// Results view styles.
+.results {
+  tr.correct {
+    background-color: transparentize(green, 0.9);
+    i {
+      color: green;
+    }
+  }
+  tr.wrong {
+    background-color: transparentize(red, 0.95);
+    i {
+      color: red;
+    }
+  }
+
+  table {
+    margin-bottom: 32px;
+  }
+}

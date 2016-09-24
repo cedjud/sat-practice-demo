@@ -23,7 +23,6 @@ var App = React.createClass({
     this.setState({
       view: 'quiz'
     });
-    // this.toggleHighlight(this.state.index);
   },
   finishQuiz: function(){
     // Reset state

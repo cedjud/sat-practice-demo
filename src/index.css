@@ -119,22 +119,25 @@ body {
 
 .text {
   overflow-y: scroll; }
-  .text .passage span {
-    padding: 1px;
-    margin: 0px 2px;
-    line-height: 28px;
-    letter-spacing: 1.1px;
-    margin: 0 0 16px;
-    font-weight: 200; }
-    .text .passage span .passage__spacer {
+  .text .passage {
+    padding: 0px 32px 128px 32px; }
+    .text .passage__copy, .text .passage__highlight {
+      padding: 1px;
+      margin: 0px 2px;
+      line-height: 28px;
+      letter-spacing: 1.1px;
+      margin: 0 0 16px;
+      font-weight: 200; }
+      .text .passage__copy.passage__highlight-active, .text .passage__highlight.passage__highlight-active {
+        color: #666;
+        background-color: #eee;
+        border-radius: 1px;
+        font-weight: 400; }
+        .text .passage__copy.passage__highlight-active:before, .text .passage__copy.passage__highlight-active:after, .text .passage__highlight.passage__highlight-active:before, .text .passage__highlight.passage__highlight-active:after {
+          content: "";
+          background-color: #37474f; }
+    .text .passage__spacer {
       height: 16px; }
-  .text .passage__highlight-active {
-    color: #666;
-    background-color: #eee;
-    border-radius: 1px; }
-    .text .passage__highlight-active:before, .text .passage__highlight-active:after {
-      content: "";
-      background-color: #37474f; }
 
 .card-enter {
   opacity: 0.01;

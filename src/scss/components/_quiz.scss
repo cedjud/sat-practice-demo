@@ -1,0 +1,15 @@
+// Quiz panel styles
+.quiz {
+  position: relative;
+  padding-left: 0px;
+
+  @import './instructions';
+  @import './card';
+  @import './results';
+
+  // Animation container
+  span {
+    display: flex;
+    justify-content: center;
+  }
+}

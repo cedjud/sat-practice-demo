@@ -1,0 +1,43 @@
+// Text panel styles
+.text {
+  overflow-y: scroll;
+
+  .passage {
+
+    padding: 0px 32px 128px 32px;
+
+    &__title {
+    }
+
+    &__copy,
+    &__highlight {
+      padding: 1px;
+      margin: 0px 2px;
+      line-height: 28px;
+      letter-spacing: 1.1px;
+      margin: 0 0 16px;
+      font-weight: 200;
+
+      &.passage__highlight-active {
+
+        color: #666;
+        background-color: #eee;
+        border-radius: 1px;
+        font-weight: 400;
+
+        &:before,
+        &:after {
+          content: "";
+          background-color: #37474f;
+        }
+      }
+
+    }
+
+    &__spacer {
+      height: 16px;
+    }
+
+
+  }
+}
